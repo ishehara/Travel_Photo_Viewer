@@ -9,6 +9,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
     var currentImage = 0
     lateinit var image:ImageView
+    var places = arrayOf("Coconut Tree Hills", "Galle", "Nelligala", "Red Mosque", "Ruwanweli Seya", "Sigiriya")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         val next = findViewById<ImageButton>(R.id.btnNext)
         val prev= findViewById<ImageButton>(R.id.btnPrevious)
-        var imageText = findViewById<TextView>(R.id.nameOfPlace)
+        val placeName = findViewById<TextView>(R.id.nameOfPlace)
 
         next.setOnClickListener{
             //getting the next image
@@ -32,15 +33,7 @@ class MainActivity : AppCompatActivity() {
             image = findViewById(idImageToShowInt)
             image.alpha = 1f
 
-
-            when(currentImage){
-                0->imageText.text="Coconut Tree Hills"
-                1->imageText.text="Galle"
-                2->imageText.text="Nelligala"
-                3->imageText.text="Red Mosque"
-                4->imageText.text="Ruwanweli Seya"
-                5->imageText.text="Sigiriya"
-            }
+            placeName.text=places[currentImage]
         }
 
         prev.setOnClickListener{
@@ -56,15 +49,8 @@ class MainActivity : AppCompatActivity() {
             image = findViewById(idImageToShowInt)
             image.alpha = 1f
 
+            placeName.text=places[currentImage]
 
-            when(currentImage){
-                0->imageText.text="Coconut Tree Hills"
-                1->imageText.text="Galle"
-                2->imageText.text="Nelligala"
-                3->imageText.text="Red Mosque"
-                4->imageText.text="Ruwanweli Seya"
-                5->imageText.text="Sigiriya"
-            }
         }
 
     }
